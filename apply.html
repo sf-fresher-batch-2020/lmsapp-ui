@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <scrip src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></scrip>
+    <scrip src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></scrip>
+    
+    <link rel="stylesheet" href="loinstyle.css">
+    <scrip src="registerservice.js"></scrip>
+    <scrip src="login.js"></scrip>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="leaves.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="les.css">
+    <link rel="stylesheet" href="available.css"> 
+    <link rel="stylesheet" href="apply.css">
+    <script src="registerservice.js"></script>
+</head>
+<body>
+    <div class="boundry">
+        <div class="navbar">
+            <a class="active" href="index.html">Leave Management System|LMS</a>
+            <a  href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+            <div class="dropdown">
+              <button class="dropbtn">Leaves
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#available_leaves.html">Available Leaves</a>
+                    <a href="m_leave.html">Mandatory leave</a>
+                    <a href="#official_leaves.html">Leaves in a company</a>
+                    <a href="#official_leaves.html">Non-leaves in a company</a>
+              </div>
+            </div> 
+            <div class="topnav-right">
+                <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+              </div>
+          </div>
+        
+          <div class="hero">
+            <div class="form-box">
+                <div class="button-box "> 
+                    <p class="heading">Apply For Leave</p>
+                 </div>   
+                 <form id="login" class="input-group" onsubmit="apply()">
+                    <input type="text" class="input-field" placeholder="Enter Your Name" id="name" required>
+                    <input type="email" class="input-field" placeholder="Enter Your Email" id="email" required>
+                    
+                    <br /><label for="reason">Reason </label>
+                        <select id="reason" name="reason" class="over">
+                            <option value="Earned Leave / Privilege Leave">Earned Leave / Privilege Leave</option>
+                            <option value="Casual Leave">Casual Leave</option>
+                            <option value="Sick Leave / Medical Leave">Sick Leave / Medical Leave</option>
+                            <option value="Half Pay Leave">Half Pay Leave</option>
+                            <option value="Quarantine Leave">Quarantine Leave</option>
+                            <option value="Study Leave / Sabbatical Leave">Study Leave / Sabbatical Leave</option>
+                            <option value="Leave without pay/ Loss of pay">Leave without pay/ Loss of pay</option>
+                            <option value="Compensatory off">Compensatory off</option>
+                            <option value="Work from home">Work from home</option>
+                            <option value="Field work">Field work</option>
+                            <option value="other">other</option>
+
+                        </select><br />
+                    <label>From </label><input type="date" class="over" placeholder="Date" id="fromdate" required><br />
+                    <label>To</label><input type="date" class="over" placeholder="Date" id="todate" required><br />
+                    <input type="checkbox" class="checkbox"><span>Confirm</span>
+                    <button type="submit" class="submit-btn">Apply</button>
+                    
+                </form>
+            </div>
+            </div></div>
+    
+</body>
+<script>
+    function apply()
+    {
+        event.preventDefault();
+        let name = document.querySelector("#name").value;
+        let email = document.querySelector("#email").value;
+        let options = document.querySelector("#reason").value;
+        let fromdate = document.querySelector("#fromdate").value;
+        let todate = document.querySelector("#todate").value;
+        
+        var userObj={"name":name, "email":email, "reason":options,"from_date":fromdate,"to_date":todate};
+      console.log(userObj);
+      var registerserviceObj= new RegisterService();
+      let result= registerserviceObj.register(userObj);
+      if (result=="success"){
+       alert("Applied successfully");
+       window.location.href="index.html"; 
+      }
+      else{
+          alert("Failed to Apply");
+      }
+       //var usersTemp = JSON.parse(localStorage.getItem("USERS"));
+       //var users= usersTemp ? usersTemp:[];
+       // users.push(userObj);
+       //localStorage.setItem("USERS",JSON.stringify(users));
+      
+       }
+
+</script>
+</html>

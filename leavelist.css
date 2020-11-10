@@ -1,0 +1,32 @@
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td,
+        th {
+            border: 1px solid #DDDDDD;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #DDDDDD;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+        .head {
+            color: black;
+        }
+        .header {
+            color: blue;
+        }
+        .top {
+            min-height: 50px;
+            min-width: 200px;
+            margin: 10px;
+            background-color: gray;
+            color: red;
+        }
+ 

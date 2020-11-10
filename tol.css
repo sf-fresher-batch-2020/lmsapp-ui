@@ -1,0 +1,18 @@
+.boundr_y{
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(back.jpg);
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+}
+.background{
+    height: 50%;
+    width: 100%;
+    top: 8%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(type_of_leave.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}

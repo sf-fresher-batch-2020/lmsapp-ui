@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+    <link rel="stylesheet" href="loinstyle.css">
+    <scrip src="registerservice.js"></scrip>
+    <scrip src="login.js"></scrip>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="leaves.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="les.css">
+    <link rel="stylesheet" href="available.css"> 
+    <link rel="stylesheet" href="apply.css">
+    <script src="leavelist.js"></script>
+</head>
+<body>
+    <div class="boundry">
+        <div class="navbar">
+            <a class="active" href="index.html">Leave Management System|LMS</a>
+            <a  href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+            <div class="dropdown">
+              <button class="dropbtn">Leaves
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#available_leaves.html">Available Leaves</a>
+                    <a href="m_leave.html">Mandatory leave</a>
+                    <a href="#official_leaves.html">Leaves in a company</a>
+                    <a href="#official_leaves.html">Non-leaves in a company</a>
+              </div>
+            </div> 
+            <div class="topnav-right">
+                <a href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+              </div>
+          </div>
+    <header id="header">
+        <!-- Load Header content-->
+    </header>
+    <main class="container-fluid">
+        <div id="page-content">
+            <!-- Developed By Prasanjeet -->
+            
+            <center><h1 class="head"> PAYEES</h1></center>
+            
+            </br>
+            </br>
+            <table id="payeetable" style="width:100%">
+                <thead>
+                    <tr class="header">
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>Reason</th>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                    </tr>
+                </thead>
+                <tbody id="fillme">
+                </tbody>
+        </div>
+    </main>
+    <script>
+        $("#header").load("components/_header.html");
+        function loadpayeedata() {
+            let PayeeServices_obj = new UserList();
+            payeesList = PayeeServices_obj.list_user();
+            // document.querySelector("#fillme").innerHTML = payeesList[1].name;
+            var tblBody = document.querySelector("#fillme");
+            for (var i = 0; i < payeesList.length; i++) {
+                var row = document.createElement("tr");
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(payeesList[i].name);
+                cell.append(cellText);
+                row.appendChild(cell);
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(payeesList[i].acc_no);
+                cell.append(cellText);
+                row.appendChild(cell);
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(payeesList[i].holder_name);
+                cell.append(cellText);
+                row.appendChild(cell);
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(payeesList[i].ifsc);
+                cell.append(cellText);
+                row.appendChild(cell);
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(payeesList[i].mobile);
+                cell.append(cellText);
+                row.appendChild(cell);
+                tblBody.appendChild(row);
+            }
+        }
+        loadpayeedata();
+    </script>
+    </div>
+</body>
+</html>
