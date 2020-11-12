@@ -45,3 +45,5 @@ create table apply_leave
 insert into apply_leave(name,email,reason,from_date,to_date) values('prasanjeet das','prasanjeetdas44@gmail.com','leave for personal reason','12/11/2020','15/11/20');
 insert into apply_leave(name,email,reason,from_date,to_date) values('monu','monu44@gmail.com','leave for some reason','15/11/2020','20/11/20');
 select *from apply_leave;
+alter table apply_leave add status varchar(3)  default "requested" not null;
+select *from apply_leave;
